@@ -1,0 +1,157 @@
+/* Custom CSS for Saurav's Portfolio */
+
+/* Global Styles */
+:root {
+    --neon-blue: #4361EE;
+    --neon-purple: #7209B7;
+    --neon-pink: #F72585;
+    --dark-bg: #121212;
+    --card-bg: rgba(30, 30, 30, 0.3);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark-bg);
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(67, 97, 238, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(114, 9, 183, 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Custom Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(67, 97, 238, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(67, 97, 238, 0); }
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes blob {
+    0% { transform: scale(1); }
+    33% { transform: scale(1.1); }
+    66% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+/* Glassmorphism */
+.backdrop-blur-lg {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Neon Glow Effects */
+.hover\:shadow-glow:hover {
+    box-shadow: 0 0 15px rgba(67, 97, 238, 0.7);
+}
+
+.shadow-glow {
+    box-shadow: 0 0 15px rgba(67, 97, 238, 0.7);
+}
+
+/* Hero Section */
+.hero-title {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.hero-tagline {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.hero-cta {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Section Titles */
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+    border-radius: 3px;
+}
+
+/* Project Cards */
+.project-card {
+    transition: transform 0.5s ease;
+    perspective: 1000px;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Skill Items */
+.skill-item {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Contact Form */
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--neon-blue);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--neon-blue), var(--neon-purple));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--neon-purple), var(--neon-pink));
+}
