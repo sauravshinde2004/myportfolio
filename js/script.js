@@ -157,15 +157,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
             // Show loading state
             const submitButton = contactForm.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
             
-            // Let FormSubmit handle the form submission
-            // The form will submit to FormSubmit and redirect to thank-you.html
-            // No need to prevent default or handle the submission manually
+            // Simulate form submission delay
+            setTimeout(() => {
+                // Reset button state
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                
+                // Redirect to thank-you page
+                window.location.href = 'thank-you.html';
+            }, 1500);
         });
     }
     
